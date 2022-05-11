@@ -1923,9 +1923,6 @@ class App extends React.Component<AppProps, AppState> {
 
   private onGestureStart = withBatchedUpdates((event: GestureEvent) => {
     event.preventDefault();
-    this.setState({
-      selectedElementIds: {},
-    });
     gesture.initialScale = this.state.zoom.value;
   });
 
@@ -1958,10 +1955,6 @@ class App extends React.Component<AppProps, AppState> {
 
   private onGestureEnd = withBatchedUpdates((event: GestureEvent) => {
     event.preventDefault();
-    this.setState({
-      previousSelectedElementIds: {},
-      selectedElementIds: this.state.previousSelectedElementIds,
-    });
     gesture.initialScale = null;
   });
 
